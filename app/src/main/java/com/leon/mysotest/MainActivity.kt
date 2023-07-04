@@ -16,19 +16,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        binding.sampleText.text = LeonNdkTool().getResult()
     }
 
     /**
      * A native method that is implemented by the 'mysotest' native library,
      * which is packaged with this application.
      */
-    external fun stringFromJNI(): String
+//    external fun stringFromJNI(): String
 
     companion object {
         // Used to load the 'mysotest' library on application startup.
         init {
-            System.loadLibrary("mysotest")
+            System.loadLibrary("leonsolib")
         }
     }
 }
